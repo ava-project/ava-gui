@@ -1,6 +1,7 @@
 # ava-gui
 
 [![Build Status](https://travis-ci.org/ava-project/ava-gui.svg?branch=master)](https://travis-ci.org/ava-project/ava-gui)
+[![Build status](https://ci.appveyor.com/api/projects/status/m40mb9pgqtkn37bc/branch/master?svg=true)](https://ci.appveyor.com/project/8102/ava-gui/branch/master)
 
 > An electron-vue project
 
