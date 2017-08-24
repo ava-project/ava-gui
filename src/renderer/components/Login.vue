@@ -36,6 +36,10 @@
           if (res.status === 200) {
             this.$router.push('/');
           }
+        }).then((err) => {
+          this.response = err;
+          /* eslint no-console: ["error", { allow: ["warn", "error", "log"] }] */
+          console.log(err);
         });
       },
     },
@@ -44,4 +48,7 @@
 </script>
 
 <style>
+.navbar {
+  display: none;
+}
 </style>

@@ -17,8 +17,6 @@
 
     beforeRouteEnter(to, from, next) {
       next((vm) => {
-        /* eslint no-console: ["error", { allow: ["warn", "error"] }] */
-        console.warn('toto');
         vm.$http.get('http://localhost:8001/me').then(() => {
           next();
         }, () => {
@@ -36,12 +34,6 @@
       };
     },
 
-    methods: {
-      fetchUserInfo: () => {
-
-      },
-    },
-
     mounted() {
       this.$http.get('http://localhost:8001/me').then((res) => {
         this.username = res.body.username;
@@ -55,4 +47,7 @@
 </script>
 
 <style>
+.navbar {
+  display: block !important;
+}
 </style>
