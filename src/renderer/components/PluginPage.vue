@@ -2,43 +2,42 @@
   <div>
     <p>List of Installed Plugin</p>
     <div>
-      <ul>
-        <li class="pluginList" v-for="plugin in installedPlugin">
-          <h2>{{ plugin.name }}</h2>
-          <h3>{{ plugin.version }}</h3>
-          <p>{{ plugin.description }}</p>
-        </li>
-      </ul>
+      <plugin-list
+        v-for="(plugin, index) in plugins"
+        v-bind:plugin="plugin"
+        v-bind:key="index">
+      </plugin-list>
     </div>
   </div>
 </template>
 
 <script>
+  import PluginList from './PluginPage/PluginList';
+
   export default {
 
     name: 'plugin-page',
 
+    components: {
+      PluginList,
+    },
+
     data() {
       return {
-        installedPlugin: {},
+        plugins: {},
       };
     },
 
     mounted() {
       this.$http.get('http://localhost:8001/plugins').then((res) => {
-        this.installedPlugin = res.body.data;
-      }, () => {
+        this.plugins = res.body.data;
+      }).catch((err) => {
+        /* eslint no-console: ["error", { allow: ["warn", "error", "log"] }] */
+        console.log(err);
       });
     },
   };
 </script>
 
 <style>
-.pluginList {
-  padding: 1em;
-  margin-bottom: .125em;
-  display: block;
-  list-style: none;
-  background-color: #ccc;
-}
 </style>
