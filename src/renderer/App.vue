@@ -23,7 +23,7 @@
           if (res.status === 200) {
             this.$router.push('/login');
           }
-        }).then((err) => {
+        }).catch((err) => {
           /* eslint no-console: ["error", { allow: ["warn", "error", "log"] }] */
           console.log(err);
         });

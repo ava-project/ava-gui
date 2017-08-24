@@ -19,7 +19,7 @@
       next((vm) => {
         vm.$http.get('http://localhost:8001/me').then(() => {
           next();
-        }, () => {
+        }).catch(() => {
           next('/login');
         });
       });
@@ -40,7 +40,7 @@
         this.email = res.body.email;
         this.firstName = res.body.first_name;
         this.lastName = res.body.last_name;
-      }, () => {
+      }).catch(() => {
       });
     },
   };
