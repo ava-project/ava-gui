@@ -1,15 +1,19 @@
 <template>
-  <div id="app">
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <ul class="nav navbar-nav">
-          <li><router-link to='landing-page'>Home</router-link></li>
-          <li><router-link to='plugin'>Plugin</router-link></li>
-          <li><a v-on:click="logout()" href="#">Logout</a></li>
-        </ul>
-      </div>
-    </nav>
-    <router-view></router-view>
+  <div id="app" style="background:#eee;">
+    <Menu mode="horizontal" active-name="Home" class="menu-nav-bar">
+      <MenuItem name="Home">
+        <router-link to='landing-page'>Home</router-link>
+      </MenuItem>
+      <MenuItem name="Plugin">
+        <router-link to='plugin'>Plugin</router-link>
+      </MenuItem>
+      <MenuItem name="Logout">
+        <a v-on:click="logout()" href="#">Logout</a>
+      </MenuItem>
+    </Menu>
+    <Card :bordered="false">
+      <router-view></router-view>
+    </Card>
   </div>
 </template>
 
@@ -33,5 +37,7 @@
 </script>
 
 <style>
-  /* CSS */
+  .menu-nav-bar {
+    background-color: #ee6e73;
+  }
 </style>

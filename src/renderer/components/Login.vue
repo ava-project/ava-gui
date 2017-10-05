@@ -2,18 +2,22 @@
   <div class="container container-table">
     <p>Login Page</p>
       <div class="container">
-        <form class="ui form loginForm"  @submit.prevent="login">
-          <input class="form-control" name="email" placeholder="Email" type="text" v-model="email">
-          <input class="form-control" name="password" placeholder="Password" type="password" v-model="password">
-          <button type="submit">Submit</button>
-        </form>
+        <Form ref="formInline" :model="formInline" :rules="ruleInline" inline>
+          <FormItem prop="email">
+              <Input type="text" v-model="formInline.email" placeholder="Email">
+                  <Icon type="ios-person-outline" slot="prepend"></Icon>
+              </Input>
+          </FormItem>
+          <FormItem prop="password">
+              <Input type="password" v-model="formInline.password" placeholder="Password">
+                  <Icon type="ios-locked-outline" slot="prepend"></Icon>
+              </Input>
+          </FormItem>
+          <FormItem>
+              <Button type="primary" @click="login()">Submit</Button>
+          </FormItem>
+        </Form>
       </div>
-
-    <!-- errors -->
-    <div v-if="errorCred" class="error-msg">
-      <i class="fa fa-times-circle"></i>
-      Wrong credentials.
-    </div>
 
   </div>
 </template>
@@ -25,16 +29,25 @@
 
     data() {
       return {
-        email: '',
-        password: '',
-        response: '',
-        errorCred: false,
+        formInline: {
+          email: '',
+          password: '',
+        },
+        ruleInline: {
+          email: [
+            { required: true, message: 'Email is required', trigger: 'blur' },
+          ],
+          password: [
+            { required: true, message: 'Password is required', trigger: 'blur' },
+            { type: 'string', min: 6, message: 'Password must be more then 6 character', trigger: 'blur' },
+          ],
+        },
       };
     },
 
     methods: {
       login() {
-        const body = { email: this.email, password: this.password };
+        const body = { email: this.formInline.email, password: this.formInline.password };
         const option = { emulateJSON: true };
 
         this.errorCred = false;

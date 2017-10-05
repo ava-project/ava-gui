@@ -30,7 +30,7 @@
 
     mounted() {
       this.$http.get('http://localhost:8001/plugins').then((res) => {
-        this.plugins = res.body.data;
+        this.plugins = res.body;
       }).catch((err) => {
         /* eslint no-console: ["error", { allow: ["warn", "error", "log"] }] */
         console.log(err);
