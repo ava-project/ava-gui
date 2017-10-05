@@ -3,17 +3,9 @@
     <h2>{{ plugin.name }}</h2>
     <h3>{{ plugin.version }}</h3>
     <p>{{ plugin.description }}</p>
-    <button v-on:click="changeOpen">
-      <i v-show="!isOpen">+</i>
-      <i v-show="isOpen">-</i>
-    </button>
-    <div v-show="isOpen">
-      <button v-if="plugin.installed === true" v-on:click="removePlugin">
-        Uninstall
-      </button>
-      <button v-else v-on:click="installPlugin">
-        Install
-      </button>
+    <div>
+      <Button v-if="plugin.installed === true" v-on:click="removePlugin">Uninstall</Button>
+      <Button v-else v-on:click="installPlugin">Install</Button>
     </div>
   </Card>
 </template>
@@ -24,15 +16,10 @@
 
     data() {
       return {
-        isOpen: false,
       };
     },
 
     methods: {
-      changeOpen() {
-        this.isOpen = !this.isOpen;
-      },
-
       removePlugin() {
         const uri = `http://localhost:8001/plugins/${this.plugin.name}`;
 

@@ -40,4 +40,7 @@
   .menu-nav-bar {
     background-color: #ee6e73;
   }
+  .menu-nav-bar a {
+    color: #fff;
+  }
 </style>
