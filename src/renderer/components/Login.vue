@@ -50,7 +50,6 @@
         const body = { email: this.formInline.email, password: this.formInline.password };
         const option = { emulateJSON: true };
 
-        this.errorCred = false;
         this.$http.post('http://localhost:8001/login', body, option).then((res) => {
           if (res.status === 200) {
             this.$router.push('/');

@@ -4,7 +4,7 @@
     <h3>{{ plugin.version }}</h3>
     <p>{{ plugin.description }}</p>
     <div>
-      <Button v-if="plugin.installed === true" v-on:click="removePlugin">Uninstall</Button>
+      <Button v-if="plugin.installed === 'true'" v-on:click="removePlugin">Uninstall</Button>
       <Button v-else v-on:click="installPlugin">Install</Button>
     </div>
   </Card>
@@ -12,7 +12,7 @@
 
 <script>
   export default {
-    props: ['plugin'],
+    props: ['plugin', 'update'],
 
     data() {
       return {
@@ -23,8 +23,8 @@
       removePlugin() {
         const uri = `http://localhost:8001/plugins/${this.plugin.name}`;
 
-        this.$http.delete(uri).then((res) => {
-          this.plugins = res.body.data;
+        this.$http.delete(uri).then(() => {
+          this.update();
         }).catch((err) => {
           /* eslint no-console: ["error", { allow: ["warn", "error", "log"] }] */
           console.log(err);
@@ -34,8 +34,8 @@
       installPlugin() {
         const uri = `http://localhost:8001/plugins/${this.plugin.author}/${this.plugin.name}/download`;
 
-        this.$http.get(uri).then((res) => {
-          this.plugins = res.body.data;
+        this.$http.get(uri).then(() => {
+          this.update();
         }).catch((err) => {
           /* eslint no-console: ["error", { allow: ["warn", "error", "log"] }] */
           console.log(err);
