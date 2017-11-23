@@ -18,7 +18,6 @@
           </FormItem>
         </Form>
       </div>
-
   </div>
 </template>
 
@@ -26,6 +25,8 @@
   export default {
 
     name: 'login-page',
+
+    props: ['setLog', 'isLoggedIn'],
 
     data() {
       return {
@@ -52,6 +53,7 @@
 
         this.$http.post('http://localhost:8001/login', body, option).then((res) => {
           if (res.status === 200) {
+            this.setLog(true);
             this.$router.push('/');
           }
         }).catch((err) => {

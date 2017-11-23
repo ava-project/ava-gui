@@ -15,10 +15,14 @@
 
     name: 'landing-page',
 
+    props: ['isLoggedIn'],
+
     beforeRouteEnter(to, from, next) {
       next((vm) => {
-        vm.$http.get('http://localhost:8001/me').then(() => {
-          next();
+        vm.$http.get('http://localhost:8001/me').then((res) => {
+          if (res.status === 200) {
+            next();
+          }
         }).catch(() => {
           next('/login');
         });
@@ -36,10 +40,12 @@
 
     mounted() {
       this.$http.get('http://localhost:8001/me').then((res) => {
-        this.username = res.body.username;
-        this.email = res.body.email;
-        this.firstName = res.body.first_name;
-        this.lastName = res.body.last_name;
+        if (res.status === 200) {
+          this.username = res.body.username;
+          this.email = res.body.email;
+          this.firstName = res.body.first_name;
+          this.lastName = res.body.last_name;
+        }
       }).catch(() => {
       });
     },

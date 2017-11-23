@@ -9,11 +9,13 @@ export default new Router({
       path: '/',
       name: 'landing-page',
       component: require('@/components/LandingPage'),
+      props: true,
     },
     {
       path: '/login',
       name: 'login-page',
       component: require('@/components/Login'),
+      props: true,
     },
     {
       path: '/plugin',
