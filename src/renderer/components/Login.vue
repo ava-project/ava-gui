@@ -1,5 +1,10 @@
 <template>
-  <div class="container container-table">
+  <div class="container container-table" style="text-align:center">
+    <img
+      class="ui small image"
+      :src="logoSource"
+      style="width: 35%; margin-bottom: -15px;"
+    >
     <p>Login Page</p>
       <div class="container">
         <Form ref="formInline" :model="formInline" :rules="ruleInline" inline>
@@ -30,6 +35,7 @@
 
     data() {
       return {
+        logoSource: require('../assets/logoAva.png'),
         formInline: {
           email: '',
           password: '',
