@@ -1,11 +1,10 @@
 <template>
   <div>
-    <p>Welcome</p>
+    <h1>Hello {{username}}</h1>
     <div>
-      <p>Username: {{username}}</p>
-      <p>Email: {{email}}</p>
       <p>First Name: {{firstName}}</p>
       <p>Last Name: {{lastName}}</p>
+      <p>Email: {{email}}</p>
     </div>
   </div>
 </template>

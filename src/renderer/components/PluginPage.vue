@@ -1,11 +1,15 @@
 <template>
   <div>
-    <p>List of Plugin</p>
-    <div>
-      <Card>
+    <h1>Plugins List</h1>
+    <p>Here you can find all the plugins the community made.</p>
+    <div class="list-of-plugins">
+      <Card
+        :bordered="false"
+        class="installed-plugins"
+      >
         <p slot="title">
           <Icon type="ios-filing"></Icon>
-          Installed
+          Installed Plugins
         </p>
         <plugin-list
           v-for="(plugin, index) in plugins"
@@ -15,10 +19,13 @@
           update="update">
         </plugin-list>
       </Card>
-      <Card>
+      <Card
+        :bordered="false"
+        class="install-plugins"
+      >
         <p slot="title">
           <Icon type="plus-circled"></Icon>
-          Install Plugin
+          Install Plugins
         </p>
         <plugin-list
           v-for="(plugin, index) in plugins"
@@ -72,4 +79,20 @@
 </script>
 
 <style>
+  .list-of-plugins{
+    padding-top: 20px;
+  }
+
+  .installed-plugins, .install-plugins {
+    background-color: #424242;
+    margin-bottom: 20px;
+  }
+
+  .installed-plugins > .ivu-card-head, .install-plugins > .ivu-card-head {
+    border-bottom: 1px solid #EE578A;
+  }
+
+  .installed-plugins > .ivu-card-head > p, .install-plugins > .ivu-card-head > p {
+    color: #FFF !important;
+  }
 </style>

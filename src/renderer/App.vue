@@ -1,10 +1,10 @@
 <template>
-  <div id="app" style="background:#eee;">
+  <div id="app">
     <Menu  v-if="isLoggedIn" mode="horizontal" active-name="Home" class="menu-nav-bar">
       <MenuItem name="Home">
         <router-link to='landing-page'>Home</router-link>
       </MenuItem>
-      <MenuItem name="Plugin">
+      <MenuItem name="Plugins">
         <router-link to='plugin'>Plugin</router-link>
       </MenuItem>
       <MenuItem name="Logout">
@@ -14,6 +14,7 @@
     <Card
       :bordered="false"
       dis-hover
+      style="background: none;"
     >
       <router-view
         :setLog="setLog"
@@ -62,10 +63,28 @@
 </script>
 
 <style>
+  body {
+    background-color: #616161;
+  }
+
+  p, h1 {
+    color: #FFF;
+  }
+
   .menu-nav-bar {
-    background-color: #ee6e73;
+    background-color: #424242;
   }
+
   .menu-nav-bar a {
-    color: #fff;
+    color: #FFF;
   }
+
+  .ivu-menu-horizontal.ivu-menu-light:after {
+    background-color: #EE578A;
+  }
+
+  /*.menu-nav-bar > li, .ivu-menu-item:hover {
+    color: #FFF;
+    border-bottom: #FFF !important;
+  }*/
 </style>

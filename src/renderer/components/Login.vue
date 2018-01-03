@@ -5,7 +5,7 @@
       :src="logoSource"
       style="width: 35%; margin-bottom: -15px;"
     >
-    <p>Login Page</p>
+    <p class="title" >Login Page</p>
       <div class="container">
         <Form ref="formInline" :model="formInline" :rules="ruleInline" inline>
           <FormItem prop="email">
@@ -19,7 +19,7 @@
               </Input>
           </FormItem>
           <FormItem>
-              <Button type="primary" @click="login()">Submit</Button>
+              <Button class="submitButton" type="primary" @click="login()">Submit</Button>
           </FormItem>
         </Form>
       </div>
@@ -80,6 +80,26 @@
 @import url('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css');
 .navbar {
   display: none;
+}
+
+.ivu-input, .ivu-input-group-prepend {
+  background-color: #424242 !important;
+  color: #FFF;
+  border-color: #EE578A;
+}
+
+.ivu-input:focus, .ivu-input:hover {
+  border-color: #FFF;
+}
+
+.submitButton {
+  background-color: #EE578A;
+  border-color: #EE578A;
+}
+
+.submitButton:hover {
+  background-color: #EE578A;
+  border-color: #FFF;
 }
 
 .error-msg {
