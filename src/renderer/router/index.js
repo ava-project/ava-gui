@@ -23,6 +23,11 @@ export default new Router({
       component: require('@/components/PluginPage'),
     },
     {
+      path: '/setting',
+      name: 'setting',
+      component: require('@/components/Setting'),
+    },
+    {
       path: '*',
       redirect: '/',
     },

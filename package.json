@@ -1,6 +1,6 @@
 {
   "name": "ava-gui",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": "AVA Team <ava_2018@labeip.epitech.eu>",
   "description": "An electron-vue project",
   "license": null,

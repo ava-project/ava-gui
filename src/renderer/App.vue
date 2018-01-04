@@ -2,12 +2,31 @@
   <div id="app">
     <Menu  v-if="isLoggedIn" mode="horizontal" active-name="Home" class="menu-nav-bar">
       <MenuItem name="Home">
+        <Icon
+          type="home"
+          color="white"
+        />
         <router-link to='landing-page'>Home</router-link>
       </MenuItem>
       <MenuItem name="Plugins">
+        <Icon
+          type="ios-filing"
+          color="white"
+        />
         <router-link to='plugin'>Plugin</router-link>
       </MenuItem>
-      <MenuItem name="Logout">
+      <MenuItem name="Setting">
+        <Icon
+          type="gear-a"
+          color="white"
+        />
+        <router-link to='setting'>Setting</router-link>
+      </MenuItem>
+      <MenuItem name="Exit">
+        <Icon
+          type="power"
+          color="white"
+        />
         <a v-on:click="logout()" href="#">Logout</a>
       </MenuItem>
     </Menu>
